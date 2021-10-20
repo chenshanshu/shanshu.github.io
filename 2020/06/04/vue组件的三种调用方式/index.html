@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> vue组件的三种调用方式 · MyBlog</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="vue组件的三种调用方式 - danel"><meta name="keywords" content="vue.js、组件vue"><meta name="author" content="danel"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://chenshanshu.github.io/2020/06/15/hello-world/atom.xml" title="MyBlog"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="MyBlog" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">vue组件的三种调用方式</h1><div class="post-info">2020-06-04<p class="visit"><i data-identity="2020/06/04/vue组件的三种调用方式/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h2 id="一、注册组件，直接调用"><a href="#一、注册组件，直接调用" class="headerlink" title="一、注册组件，直接调用"></a>一、注册组件，直接调用</h2><p>这种比较常见</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-dialog</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> MyDialog <span class="keyword">from</span> <span class="string">'@/components'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">        components: &#123;</span><br><span class="line"><span class="actionscript">            <span class="string">'my-dialog'</span>: MyDialog</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、通过js调用"><a href="#二、通过js调用" class="headerlink" title="二、通过js调用"></a>二、通过js调用</h2><p>使用场景：登陆弹窗，付费弹窗</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VipPop <span class="keyword">from</span> <span class="string">'./VipPop'</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VipPopup</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(Vue, options) &#123;</span><br><span class="line">        <span class="keyword">this</span>.vipPop = Vue.extend(VipPop);</span><br><span class="line">        <span class="keyword">this</span>.popupInstance = <span class="keyword">new</span> <span class="keyword">this</span>.vipPop(&#123;</span><br><span class="line">            data() &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    title: <span class="string">'成为VIP，开启新特权'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            propsData: &#123;&#125;,</span><br><span class="line">            extends: options</span><br><span class="line">        &#125;).$mount();</span><br><span class="line">    &#125;</span><br><span class="line">    show(obj) &#123;</span><br><span class="line">        obj.title &amp;&amp; (<span class="keyword">this</span>.popupInstance.title = obj.title);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.el) &#123;</span><br><span class="line">            <span class="keyword">this</span>.el.style.display = <span class="string">'block'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.el = <span class="keyword">this</span>.popupInstance.$el;</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>.el)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">document</span>.body.classList.add(<span class="string">'van-overflow-hidden'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    hide() &#123;</span><br><span class="line">        <span class="built_in">document</span>.body.classList.remove(<span class="string">'van-overflow-hidden'</span>)</span><br><span class="line">        <span class="keyword">this</span>.el &amp;&amp; (<span class="keyword">this</span>.el.style.display = <span class="string">'none'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    remove() &#123;</span><br><span class="line">        <span class="built_in">document</span>.body.classList.remove(<span class="string">'van-overflow-hidden'</span>)</span><br><span class="line">        <span class="keyword">this</span>.el &amp;&amp; <span class="keyword">this</span>.el.remove();</span><br><span class="line">        <span class="keyword">this</span>.el = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">        install: <span class="function"><span class="keyword">function</span>(<span class="params">Vue, options</span>) </span>&#123;</span><br><span class="line">            Vue.prototype.$vipPop = <span class="keyword">new</span> VipPopup(Vue, options);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.van-overflow-hidden</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden <span class="meta">!important</span>;</span><br><span class="line">    <span class="comment">/**禁止背景滚动条**/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在main.js中引入这个组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">"./router.js"</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store'</span></span><br><span class="line"><span class="keyword">import</span> VipPop <span class="keyword">from</span> <span class="string">'@/components/VipPop'</span></span><br><span class="line">Vue.use(VipPop, &#123;</span><br><span class="line">    router,</span><br><span class="line">    store</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、以指令的形式调用"><a href="#三、以指令的形式调用" class="headerlink" title="三、以指令的形式调用"></a>三、以指令的形式调用</h2><p>使用场景：加载动画</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">const</span> LoadingConstructor = Vue.extend(<span class="built_in">require</span>(<span class="string">'./Loading.vue'</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    install: <span class="function"><span class="params">Vue</span> =&gt;</span> &#123;</span><br><span class="line">        Vue.directive(<span class="string">'loading'</span>, &#123; <span class="comment">// 指令的关键</span></span><br><span class="line">            bind: <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> loading = <span class="keyword">new</span> LoadingConstructor(&#123; <span class="comment">// 实例化一个loading</span></span><br><span class="line">                    el: <span class="built_in">document</span>.createElement(<span class="string">'div'</span>),</span><br><span class="line">                    data: &#123;</span><br><span class="line">                        text: el.getAttribute(<span class="string">'loading-text'</span>), <span class="comment">// 通过loading-text属性获取loading的文字</span></span><br><span class="line">                        fullscreen: !!binding.modifiers.fullscreen</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                el.instance = loading; <span class="comment">// el.instance是个Vue实例</span></span><br><span class="line">                el.loading = loading.$el; <span class="comment">// el.loading的DOM元素是loading.$el</span></span><br><span class="line">                el.loadingStyle = &#123;&#125;;</span><br><span class="line">                toggleLoading(el, binding);</span><br><span class="line">            &#125;,</span><br><span class="line">            update: <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123;</span><br><span class="line">                el.instance.setText(el.getAttribute(<span class="string">'loading-text'</span>))</span><br><span class="line">                <span class="keyword">if</span> (binding.oldValue !== binding.value) &#123;</span><br><span class="line">                    toggleLoading(el, binding)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            unbind: <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123; <span class="comment">// 解绑</span></span><br><span class="line">                <span class="keyword">if</span> (el.domInserted) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (binding.modifiers.fullscreen) &#123;</span><br><span class="line">                        <span class="built_in">document</span>.body.removeChild(el.loading);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        el.loading &amp;&amp;</span><br><span class="line">                            el.loading.parentNode &amp;&amp;</span><br><span class="line">                            el.loading.parentNode.removeChild(el.loading);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> toggleLoading = <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123; <span class="comment">// 用于控制Loading的出现与消失</span></span><br><span class="line">            <span class="keyword">if</span> (binding.value) &#123;</span><br><span class="line">                Vue.nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (binding.modifiers.fullscreen) &#123; <span class="comment">// 如果是全屏</span></span><br><span class="line">                        el.originalPosition = <span class="built_in">document</span>.body.style.position;</span><br><span class="line">                        el.originalOverflow = <span class="built_in">document</span>.body.style.overflow;</span><br><span class="line">                        insertDom(<span class="built_in">document</span>.body, el, binding); <span class="comment">// 插入dom</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        el.originalPosition = el.style.position;</span><br><span class="line">                        insertDom(el, el, binding); <span class="comment">// 如果非全屏，插入元素自身</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (el.domVisible) &#123;</span><br><span class="line">                    el.instance.$on(<span class="string">'after-leave'</span>, () =&gt; &#123;</span><br><span class="line">                        el.domVisible = <span class="literal">false</span>;</span><br><span class="line">                        <span class="keyword">if</span> (binding.modifiers.fullscreen &amp;&amp; el.originalOverflow !== <span class="string">'hidden'</span>) &#123;</span><br><span class="line">                            <span class="built_in">document</span>.body.style.overflow = el.originalOverflow;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (binding.modifiers.fullscreen) &#123;</span><br><span class="line">                            <span class="built_in">document</span>.body.style.position = el.originalPosition;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            el.style.position = el.originalPosition;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    el.instance.visible = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> insertDom = <span class="function">(<span class="params">parent, el, binding</span>) =&gt;</span> &#123; <span class="comment">// 插入dom的逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!el.domVisible) &#123;</span><br><span class="line">                <span class="built_in">Object</span>.keys(el.loadingStyle).forEach(<span class="function"><span class="params">property</span> =&gt;</span> &#123;</span><br><span class="line">                    el.loading.style[property] = el.loadingStyle[property];</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">if</span> (el.originalPosition !== <span class="string">'absolute'</span>) &#123;</span><br><span class="line">                    parent.style.position = <span class="string">'relative'</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (binding.modifiers.fullscreen) &#123;</span><br><span class="line">                    parent.style.overflow = <span class="string">'hidden'</span></span><br><span class="line">                &#125;</span><br><span class="line">                el.domVisible = <span class="literal">true</span>;</span><br><span class="line">                parent.appendChild(el.loading) <span class="comment">// 插入的是el.loading而不是el本身</span></span><br><span class="line">                Vue.nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    el.instance.visible = <span class="literal">true</span>;</span><br><span class="line">                &#125;);</span><br><span class="line">                el.domInserted = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-loading.fullscreen</span>=<span class="string">"loading"</span> <span class="attr">loading-text</span>=<span class="string">"正在加载中"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/06/04/linux%E5%AE%89%E8%A3%85ngix%E5%8F%8Ardesktop%E7%9A%84%E4%BD%BF%E7%94%A8/" title="linux安装ngix及rdesktop的使用" class="prev">PREV</a><a href="/2020/06/04/js%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E5%9B%BA%E5%AE%9A%E8%A1%8C%E6%95%B0%E9%9A%90%E8%97%8F/" title="文字超出固定行数隐藏" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">danel</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

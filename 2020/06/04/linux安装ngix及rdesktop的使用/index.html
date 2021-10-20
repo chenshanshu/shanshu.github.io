@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> linux安装ngix及rdesktop的使用 · MyBlog</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="linux安装ngix及rdesktop的使用 - danel"><meta name="keywords" content="linux shell、nginx安装、redesktop使用文档"><meta name="author" content="danel"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://chenshanshu.github.io/2020/06/15/hello-world/atom.xml" title="MyBlog"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="MyBlog" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">linux安装ngix及rdesktop的使用</h1><div class="post-info">2020-06-04<p class="visit"><i data-identity="2020/06/04/linux安装ngix及rdesktop的使用/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h2 id="raspberry-安装nginx"><a href="#raspberry-安装nginx" class="headerlink" title="raspberry 安装nginx"></a>raspberry 安装nginx</h2><ul>
+<li>sudo apt-get install nginx</li>
+<li>sudo /etc/init.d/nginx start <strong>启动</strong></li>
+<li>curl -I localhost:80 <strong>测试能否访问</strong></li>
+<li>sudo nano /etc/nginx/sites-available/default    <strong>修改端口</strong></li>
+<li>sudo /etc/init.d/nginx reload     <strong>重启</strong></li>
+</ul>
+<h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><ul>
+<li>useradd danel <strong>添加用户</strong></li>
+<li>userdel danel <strong>删除用户</strong></li>
+<li>usermod -a -G user danel <strong>添加用户组</strong></li>
+<li>usermod -g user danel <strong>修改用户主组</strong></li>
+<li>newgrp root <strong>切换用户主从组</strong></li>
+<li>groupadd groupname <strong>添加组</strong></li>
+<li>groupmod -n new_name： 修改组名</li>
+<li>groupdel groupname <strong>删除组</strong></li>
+<li>groupmems -g groupname [action]</li>
+</ul>
+<p>/* -a, –add username: 指定用户加入组；<br>-d, –delete username: 从组中删除用户；<br>-p, –purge : 从组中清除所有成员；<br>-l, –list: 显示组成员列表; */</p>
+<ul>
+<li>gpasswd -a danel user <strong>给组添加用户</strong></li>
+<li>gpasswd -d danel user <strong>删除组中用户</strong></li>
+</ul>
+<h3 id="主要配置文件"><a href="#主要配置文件" class="headerlink" title="主要配置文件"></a>主要配置文件</h3><ul>
+<li>/etc/passwd: 用户及其属性信息(名称，UID, 主组ID)</li>
+<li>/etc/shadow: 用户密码及相关属性。</li>
+<li>/etc/group: 组及其属性信息。</li>
+<li>/etc/gshadow: 组密码及相关属性。</li>
+<li>/etc/wpa_supplicant/wpa_supplicant.conf: WiFi管理</li>
+</ul>
+<h3 id="redesktop使用文档"><a href="#redesktop使用文档" class="headerlink" title="redesktop使用文档"></a>redesktop使用文档</h3><hr>
+<ul>
+<li>apt-get install redesktop</li>
+<li>ctrl+alt+t //打开终端</li>
+<li>rdesktop -f -a 32 -u username -p password ip:port //-f 全屏</li>
+<li>ctrl+alt+enter //切换全屏</li>
+<li>ctrl+alt+F2 //进入字符终端杀死进程</li>
+<li>sudo pkill rdesktop</li>
+</ul>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/10/09/python%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="python 截取字符串" class="prev">PREV</a><a href="/2020/06/04/vue%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%89%E7%A7%8D%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F/" title="vue组件的三种调用方式" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">danel</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

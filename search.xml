@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>flask学习笔记</title>
+      <link href="/2021/10/19/flask%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2021/10/19/flask%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="flask学习笔记"><a href="#flask学习笔记" class="headerlink" title="flask学习笔记"></a>flask学习笔记</h2><p>安装Flask</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Flask</span><br></pre></td></tr></table></figure><a id="more"></a><p>flask的基本使用方法</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> + python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python、flask </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css3动画</title>
+      <link href="/2021/07/28/css3%E5%8A%A8%E7%94%BB/"/>
+      <url>/2021/07/28/css3%E5%8A%A8%E7%94%BB/</url>
+      
+        <content type="html"><![CDATA[<h3 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h3><hr><h4 id=""><a href="#" class="headerlink" title=""></a></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">sticky</span>;</span><br><span class="line"><span class="selector-tag">top</span>: 0;</span><br><span class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">translateZ</span>(<span class="selector-tag">-1px</span>) <span class="selector-tag">scale</span>(2);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateZ</span>(<span class="selector-tag">-1px</span>) <span class="selector-tag">scale</span>(2);</span><br><span class="line"><span class="selector-tag">-webkit-transform-origin</span>: 0 0;</span><br><span class="line"><span class="selector-tag">transform-origin</span>: 0 0;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一种避免重复请求的方法</title>
+      <link href="/2021/06/21/%E4%B8%80%E7%A7%8D%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+      <url>/2021/06/21/%E4%B8%80%E7%A7%8D%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一种避免重复请求的方法"><a href="#一种避免重复请求的方法" class="headerlink" title="一种避免重复请求的方法"></a>一种避免重复请求的方法</h3><hr><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>1、需求：小程序在app.js中需要发起一个login请求，在index的onLoad()钩子里要拿到login的返回值进行后续操作。<br>2、通过该方法可以避免在第一次请求未完成时发出第二个请求。</p><h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *一种避免重复请求的方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@arg</span></span></span><br><span class="line"><span class="comment"> * arg[0]id    String</span></span><br><span class="line"><span class="comment"> * arg[1]promise函数 Function</span></span><br><span class="line"><span class="comment"> * arg[2]arg[1]的参数 Object</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">let</span> emiter = &#123;</span><br><span class="line">_PENDING: <span class="string">'pending'</span>,</span><br><span class="line">_RESOLVED: <span class="string">'resolved'</span>,</span><br><span class="line">_REJECTED: <span class="string">'rejected'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Emiter</span> </span>&#123;</span><br><span class="line"><span class="keyword">constructor</span>(...arg) &#123;</span><br><span class="line"><span class="keyword">const</span> unionKey = <span class="string">'emiter-'</span> + arg[<span class="number">0</span>]</span><br><span class="line">emiter[unionKey] = emiter[unionKey] || &#123;</span><br><span class="line">resolveQueue: [],</span><br><span class="line">rejectQueue: []</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.emiter = emiter[unionKey]</span><br><span class="line"><span class="keyword">this</span>.methods = arg[<span class="number">1</span>] || <span class="string">''</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">this</span>.emiter.promiseStatus &amp;&amp; <span class="keyword">typeof</span> <span class="keyword">this</span>.methods === <span class="string">'function'</span>) &#123;</span><br><span class="line"><span class="keyword">this</span>.emiter.promiseStatus = emiter[<span class="string">'_PENDING'</span>]</span><br><span class="line"><span class="keyword">this</span>.methods(arg[<span class="number">2</span>] || &#123;&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">this</span>.emiter.promiseStatus = emiter[<span class="string">'_RESOLVED'</span>]</span><br><span class="line"><span class="keyword">this</span>.emitAll(<span class="keyword">this</span>.emiter.resolveQueue, res)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">this</span>.emiter.promiseStatus = emiter[<span class="string">'_REJECTED'</span>]</span><br><span class="line"><span class="keyword">this</span>.emitAll(<span class="keyword">this</span>.emiter.rejectQueue, err)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">emitAll(queue, res) &#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.emiter.promiseStatus === emiter[<span class="string">'_PENDING'</span>]) <span class="keyword">return</span></span><br><span class="line"><span class="keyword">while</span> (queue.length) &#123;</span><br><span class="line">queue[<span class="number">0</span>].call(<span class="keyword">this</span>, res)</span><br><span class="line">queue.shift()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">this</span>.emiter.promiseStatus</span><br><span class="line">&#125;</span><br><span class="line">then(callback) &#123;</span><br><span class="line"><span class="keyword">if</span> (callback &amp;&amp; <span class="keyword">typeof</span> callback === <span class="string">'function'</span>) &#123;</span><br><span class="line"><span class="keyword">this</span>.emiter.resolveQueue.push(callback)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (callback) &#123;</span><br><span class="line"><span class="keyword">if</span> (callback &amp;&amp; <span class="keyword">typeof</span> callback === <span class="string">'function'</span>) &#123;</span><br><span class="line"><span class="keyword">this</span>.emiter.rejectQueue.push(callback)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">_</span> =&gt;</span> &#123; resolve(<span class="string">'REQUEST SUCCESS'</span>) &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">new</span> Emiter(<span class="string">'union-id'</span>, fun).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器下载文件</title>
+      <link href="/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/"/>
+      <url>/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h3>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> download </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器打印功能</title>
+      <link href="/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/"/>
+      <url>/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>打印API：<br>window.print()</p></blockquote><h3 id="需求：打印局部内容，如打印下面页面类名-printBox-里面的内容"><a href="#需求：打印局部内容，如打印下面页面类名-printBox-里面的内容" class="headerlink" title="需求：打印局部内容，如打印下面页面类名 printBox 里面的内容"></a>需求：打印局部内容，如打印下面页面类名 <strong>printBox</strong> 里面的内容</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>页面内容...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"printBtn"</span>&gt;</span>打印报告<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"printContent"</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"printBox"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>打印报告<span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>报告内容...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="实现：已知A4纸张尺寸为297mm-210mm，通过创建-iframe-来实现打印；"><a href="#实现：已知A4纸张尺寸为297mm-210mm，通过创建-iframe-来实现打印；" class="headerlink" title="实现：已知A4纸张尺寸为297mm*210mm，通过创建 iframe 来实现打印；"></a>实现：已知A4纸张尺寸为297mm*210mm，通过创建 <strong>iframe</strong> 来实现打印；</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> frameId = <span class="string">'printFrame'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;boolean&#125;</span> </span>portrait 是否纵向打印</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> print = <span class="function"><span class="keyword">function</span>(<span class="params">portrait</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> iframe = <span class="built_in">document</span>.getElementById(frameId);</span><br><span class="line">    <span class="keyword">if</span>(!iframe)&#123;</span><br><span class="line">        <span class="keyword">var</span> frameStyle = portrait ?</span><br><span class="line">        <span class="string">`&lt;style&gt;@page&#123;size:A4 portrait;margin:0mm;width:297mm;min-height:200mm;&#125;&lt;/style&gt;`</span>:</span><br><span class="line">        <span class="string">`&lt;style&gt;@page&#123;size:A4 landscape;margin:0mm;width:210mm;min-height:280mm;&#125;&lt;/style&gt;`</span>;</span><br><span class="line">        <span class="comment">// 当高度设置为最大值，会出现打印内容后面多出一张空白页</span></span><br><span class="line">        <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">"printContent"</span>);</span><br><span class="line">        iframe = <span class="built_in">document</span>.createElement(<span class="string">'IFRAME'</span>);</span><br><span class="line">        iframe.setAttribute(frameId);</span><br><span class="line">        iframe.setAttribute(<span class="string">'style'</span>, <span class="string">'position:absolute;width:0px;height:0px;left:-500px;top:-500px;'</span>);</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(iframe);</span><br><span class="line">        <span class="keyword">var</span> doc = iframe.contentWindow.document;</span><br><span class="line">        doc.write(frameStyle);</span><br><span class="line">        doc.write(<span class="string">`&lt;div&gt;<span class="subst">$&#123;el.innerHTML&#125;</span>&lt;/div&gt;`</span>);</span><br><span class="line">        doc.close();</span><br><span class="line">        iframe.contentWindow.focus();  </span><br><span class="line">    &#125;</span><br><span class="line">    iframe.contentWindow.print();</span><br><span class="line">    <span class="keyword">if</span> (navigator.userAgent.indexOf(<span class="string">"MSIE"</span>) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">document</span>.body.removeChild(iframe);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul><li>当打印内容带有背景时候记得勾选背景图形选项</li><li>此处只测试了Chrome，兼容性未处理</li></ul><h3 id="扩展：打印机型号不同时打印内容也有差别，所以可以通过用canvas来绘制内容-可以参考微信小程序生成分享图功能-，然后生成图片放入第二步的iframe中。"><a href="#扩展：打印机型号不同时打印内容也有差别，所以可以通过用canvas来绘制内容-可以参考微信小程序生成分享图功能-，然后生成图片放入第二步的iframe中。" class="headerlink" title="扩展：打印机型号不同时打印内容也有差别，所以可以通过用canvas来绘制内容(可以参考微信小程序生成分享图功能)，然后生成图片放入第二步的iframe中。"></a>扩展：打印机型号不同时打印内容也有差别，所以可以通过用canvas来绘制内容(<font color=green>可以参考微信小程序生成分享图功能</font>)，然后生成图片放入第二步的iframe中。</h3>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> web print iframe </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2021/03/04/hello-world/"/>
+      <url>/2021/03/04/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Web Components</title>
+      <link href="/2020/11/06/web-components/"/>
+      <url>/2020/11/06/web-components/</url>
+      
+        <content type="html"><![CDATA[<h2 id="The-Shadow-DOM"><a href="#The-Shadow-DOM" class="headerlink" title="The Shadow DOM"></a>The Shadow DOM</h2><p>通过shadow DOM在文档流中创建一些完全独立于其他元素的子DOM树（sub-DOM trees），由于这个特性，使我们能封装一个具有独立功能的组件，并且可以保证不会干扰到其它DOM元素</p><h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Chrome、Opera、Chrome for Android</p><h2 id="WebComponents的重要性"><a href="#WebComponents的重要性" class="headerlink" title="WebComponents的重要性"></a>WebComponents的重要性</h2><ul><li>开发无害插件（主页面样式不会修改组件样式）</li><li>能开发更通用的组件</li><li>可维护</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> + web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Apache配置</title>
+      <link href="/2020/10/28/Apache%E9%85%8D%E7%BD%AE/"/>
+      <url>/2020/10/28/Apache%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="wamp安装及配置反向代理"><a href="#wamp安装及配置反向代理" class="headerlink" title="wamp安装及配置反向代理"></a>wamp安装及配置反向代理</h2><ol><li><p>安装wamp，也可安装apache</p><blockquote><p><a href="http://www.wampserver.com/en/" target="_blank" rel="noopener">下载地址</a> “<a href="http://www.wampserver.com/en/&quot;" target="_blank" rel="noopener">http://www.wampserver.com/en/&quot;</a></p></blockquote></li><li><p>配置apache使外网访问（版本2.4.27）</p><ul><li>修改httpd.conf文件<pre><code>Require all denied  ==&gt;  Require all grantedRequire local  ==&gt; Require all grantedListen 0.0.0.0:8000 //搜索 Listen 0.0.0.0:80 添加对8000端口的监听</code></pre></li><li>修改httpd-vhosts.conf文件<pre><code>Require all denied ==&gt; Require all granted//至此别人可以访问你的www目录下的静态内容</code></pre></li></ul></li><li><p>设置花生壳内网穿透（有公网ip的忽略）</p><blockquote><p>填写你的局域网ip,端口,获得外网访问地址</p></blockquote></li><li><p>配置Apache反向代理nodejs服务</p><ul><li><p>修改httpd.conf文件</p><pre><code>//去掉下列内容的注释，引入代理模块LoadModule proxy_module modules/mod_proxy.soLoadModule proxy_http_module modules/mod_proxy_http.so//如需ftp，取消如下注释LoadModule proxy_ftp_module modules/mod_proxy_ftp.so</code></pre></li><li><p>修改httpd-vhosts.conf文件</p><pre><code>//添加下列代码&lt;VirtualHost *:8000&gt; //不放在80端口上防止影响phpMyAdmin    ServerName 20xr498049.imwork.net //外网访问的域名    ServerAlias www.20xr498049.imwork.net:42685 //别名    #DocumentRoot &quot;${INSTALL_DIR}/www&quot;     &lt;Proxy *&gt;        Order allow,deny        Allow from all    &lt;/Proxy&gt;    &lt;Location /&gt;          ProxyPass http://localhost:3000/  //node访问地址        ProxyPassReverse http://localhost:3000/      &lt;/Location&gt;  &lt;/VirtualHost&gt;</code></pre></li></ul></li><li><p>开启nodejs项目，重启apache服务。</p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Apache </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git 手册</title>
+      <link href="/2020/10/28/git-%E6%89%8B%E5%86%8C/"/>
+      <url>/2020/10/28/git-%E6%89%8B%E5%86%8C/</url>
+      
+        <content type="html"><![CDATA[<h3 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h3><hr><h5 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">新建本地新分支</td><td align="left"><code>git branch branch</code></td></tr><tr><td align="left">新建并切换到本地新分支</td><td align="left"><code>git checkout -b branch</code></td></tr><tr><td align="left">新建远程分支</td><td align="left"><code>git push origin branch:remoteBranch</code></td></tr><tr><td align="left">删除本地分支</td><td align="left"><code>git branch -d dev</code></td></tr><tr><td align="left">删除远程分支</td><td align="left"><code>git push origin :remoteBranch</code></td></tr><tr><td align="left">设置本地追踪远程分支</td><td align="left"><code>git branch --set-upstream-to=origin/remoteBranch localBranch</code></td></tr><tr><td align="left">直接将远程分支拉取并在本地建立关联分支</td><td align="left"><code>git checkout -b localBranch origin/remoteBranch</code>    <br><code>or</code><br><code>git fetch origin master:test</code></td></tr></tbody></table><h5 id="强制操作"><a href="#强制操作" class="headerlink" title="强制操作"></a>强制操作</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">强制覆盖本地修改</td><td align="left"><code>git fetch --all</code><br><code>git reset --hard origin/master</code><br><code>git pull</code></td></tr><tr><td align="left">强制上传</td><td align="left"><code>git push -f origin remoteBranch</code></td></tr></tbody></table><h5 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">查看本地分支与远程关联情况</td><td align="left"><code>git branch -vv</code></td></tr><tr><td align="left">查看本地仓库状态</td><td align="left"><code>git status</code></td></tr><tr><td align="left">查看本地操作</td><td align="left"><code>git reflog</code></td></tr><tr><td align="left">比较本地与远程</td><td align="left"><code>git log -p master  ..origin/master</code></td></tr><tr><td align="left">查看某个提交</td><td align="left"><code>git show commitID</code></td></tr><tr><td align="left">修改主机地址</td><td align="left"><code>git remote set-url origin ssh.aaaa.git</code><br><code>or</code><br><code>git remote rm origin</code><br><code>git remote add origin [url]</code></td></tr><tr><td align="left">版本回退</td><td align="left"><code>git reset --hard commitID</code></td></tr><tr><td align="left">版本回滚</td><td align="left"><code>git revert HEAD</code></td></tr><tr><td align="left">将指定的提交（commit）应用于其他分支</td><td align="left"><code>git cherry-pick commitID</code>//分支名</td></tr><tr><td align="left">Cherry pick 支持一次转移多个提交</td><td align="left"><code>git cherry-pick A^..B</code>//包含A和B</td></tr></tbody></table>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux shell笔记</title>
+      <link href="/2020/10/28/linux-shell%E7%AC%94%E8%AE%B0/"/>
+      <url>/2020/10/28/linux-shell%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="raspberry-安装nginx"><a href="#raspberry-安装nginx" class="headerlink" title="raspberry 安装nginx"></a>raspberry 安装nginx</h2><ul><li>sudo apt-get install nginx</li><li>sudo /etc/init.d/nginx start <strong>启动</strong></li><li>curl -I localhost:80 <strong>测试能否访问</strong></li><li>sudo nano /etc/nginx/sites-available/default    <strong>修改端口</strong></li><li>sudo /etc/init.d/nginx reload     <strong>重启</strong></li></ul><h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><ul><li>useradd danel <strong>添加用户</strong></li><li>userdel danel <strong>删除用户</strong></li><li>usermod -a -G user danel <strong>添加用户组</strong></li><li>usermod -g user danel <strong>修改用户主组</strong></li><li>newgrp root <strong>切换用户主从组</strong></li><li>groupadd groupname <strong>添加组</strong></li><li>groupmod -n new_name： 修改组名</li><li>groupdel groupname <strong>删除组</strong></li><li>groupmems -g groupname [action]</li></ul><p>/* -a, –add username: 指定用户加入组；<br>-d, –delete username: 从组中删除用户；<br>-p, –purge : 从组中清除所有成员；<br>-l, –list: 显示组成员列表; */</p><ul><li>gpasswd -a danel user <strong>给组添加用户</strong></li><li>gpasswd -d danel user <strong>删除组中用户</strong></li></ul><h3 id="主要配置文件"><a href="#主要配置文件" class="headerlink" title="主要配置文件"></a>主要配置文件</h3><ul><li>/etc/passwd: 用户及其属性信息(名称，UID, 主组ID)</li><li>/etc/shadow: 用户密码及相关属性。</li><li>/etc/group: 组及其属性信息。</li><li>/etc/gshadow: 组密码及相关属性。</li><li>/etc/wpa_supplicant/wpa_supplicant.conf: WiFi管理</li></ul><h3 id="redesktop使用文档"><a href="#redesktop使用文档" class="headerlink" title="redesktop使用文档"></a>redesktop使用文档</h3><hr><ul><li>apt-get install redesktop</li><li>ctrl+alt+t //打开终端</li><li>rdesktop -f -a 32 -u username -p password ip:port //-f 全屏</li><li>ctrl+alt+enter //切换全屏</li><li>ctrl+alt+F2 //进入字符终端杀死进程</li><li>sudo pkill rdesktop</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> + linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webpack快速上手</title>
+      <link href="/2020/10/28/webpack%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"/>
+      <url>/2020/10/28/webpack%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="webpack4基本使用"><a href="#webpack4基本使用" class="headerlink" title="webpack4基本使用"></a>webpack4基本使用</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote><p><em>webpack是一个前端资源加载/打包工具。</em></p></blockquote><p>它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。可以将多种静态资源 js、css、less 转换成一个静态文件，减少了页面的请求。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>需要先安装好nodejs, 然后执行下列操作；<strong>可能遇到的问题，linux下通过sudo获得管理员权限安装，windows下开始搜索cmd, 右键以管理员身份运行才能安装以下内容；但是在vscode、webstorm等控制台可以直接安装。</strong></p><pre><code>mkdir webpacktestcd webpacktestnpm init -f-ynpm i webpack -D /*i == install ; -D == --dev--save ; */npm i webpack-cli -D /*webpack4提示需要安装这个才能使用*/</code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>安装后webpack模块就被安装到项目里的node_modules文件夹下面；新建文件demo1.js，写入你想执行的js代码。</p><p>网上大部分教程都是在linux下的执行命令，这里讲一下windows下的使用方法。</p><pre><code>.\node_modules\.bin\webpack demo1.js -o bundle.js --mode development</code></pre><p>至此完成了第一次的代码打包。</p><h2 id="使用配置文件"><a href="#使用配置文件" class="headerlink" title="使用配置文件"></a>使用配置文件</h2><p>在项目根目录下新建<strong>webpack.config.js</strong>；新建src文件夹，以后自己编写的代码全部放在这个文件夹下面；新建dist文件夹用来存放打包后的文件。</p><pre><code>const path = require('path'); const config = {    mode:'development',    entry:{        main:path.resolve(__dirname,"./src","index.js")    },    output:{        path:path.resolve(__dirname,'dist'),        filename:'bundle.js'    },    module:{        rules:[            {                test:/\.css$/,                use:[                    "style-loader",                    "css-loader"                ]            }        ]    }}; module.exports = config; </code></pre><p>有了配置文件后可以用以下命令就能执行打包了</p><pre><code>.\node_modules\.bin\webpack</code></pre><p>使用起来还是不方便，可以把命令加到package.json里；注意这里只需要提供包名，node会自动找到包所在目录。</p><pre><code>"scripts": {    "start": "webpack",  }</code></pre><p>现在可以在命令行使用下面命令打包</p><pre><code>npm start /*注意，当命令指定的为start时候可以省去run*/markdown预览 ctrl+shift+v</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> + js打包 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> webpack </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>正则表达式</title>
+      <link href="/2020/10/28/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <url>/2020/10/28/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<pre>^((?!\d*$)\S{2, })|(\d{6, })$//超过2个字符或者超过6位纯数字</pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> + regex </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> regex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python 截取字符串</title>
+      <link href="/2020/10/09/python%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+      <url>/2020/10/09/python%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+      
+        <content type="html"><![CDATA[<p>111</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> + linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux安装ngix及rdesktop的使用</title>
+      <link href="/2020/06/04/linux%E5%AE%89%E8%A3%85ngix%E5%8F%8Ardesktop%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>/2020/06/04/linux%E5%AE%89%E8%A3%85ngix%E5%8F%8Ardesktop%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="raspberry-安装nginx"><a href="#raspberry-安装nginx" class="headerlink" title="raspberry 安装nginx"></a>raspberry 安装nginx</h2><ul><li>sudo apt-get install nginx</li><li>sudo /etc/init.d/nginx start <strong>启动</strong></li><li>curl -I localhost:80 <strong>测试能否访问</strong></li><li>sudo nano /etc/nginx/sites-available/default    <strong>修改端口</strong></li><li>sudo /etc/init.d/nginx reload     <strong>重启</strong></li></ul><h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><ul><li>useradd danel <strong>添加用户</strong></li><li>userdel danel <strong>删除用户</strong></li><li>usermod -a -G user danel <strong>添加用户组</strong></li><li>usermod -g user danel <strong>修改用户主组</strong></li><li>newgrp root <strong>切换用户主从组</strong></li><li>groupadd groupname <strong>添加组</strong></li><li>groupmod -n new_name： 修改组名</li><li>groupdel groupname <strong>删除组</strong></li><li>groupmems -g groupname [action]</li></ul><p>/* -a, –add username: 指定用户加入组；<br>-d, –delete username: 从组中删除用户；<br>-p, –purge : 从组中清除所有成员；<br>-l, –list: 显示组成员列表; */</p><ul><li>gpasswd -a danel user <strong>给组添加用户</strong></li><li>gpasswd -d danel user <strong>删除组中用户</strong></li></ul><h3 id="主要配置文件"><a href="#主要配置文件" class="headerlink" title="主要配置文件"></a>主要配置文件</h3><ul><li>/etc/passwd: 用户及其属性信息(名称，UID, 主组ID)</li><li>/etc/shadow: 用户密码及相关属性。</li><li>/etc/group: 组及其属性信息。</li><li>/etc/gshadow: 组密码及相关属性。</li><li>/etc/wpa_supplicant/wpa_supplicant.conf: WiFi管理</li></ul><h3 id="redesktop使用文档"><a href="#redesktop使用文档" class="headerlink" title="redesktop使用文档"></a>redesktop使用文档</h3><hr><ul><li>apt-get install redesktop</li><li>ctrl+alt+t //打开终端</li><li>rdesktop -f -a 32 -u username -p password ip:port //-f 全屏</li><li>ctrl+alt+enter //切换全屏</li><li>ctrl+alt+F2 //进入字符终端杀死进程</li><li>sudo pkill rdesktop</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> + linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue组件的三种调用方式</title>
+      <link href="/2020/06/04/vue%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%89%E7%A7%8D%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F/"/>
+      <url>/2020/06/04/vue%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%89%E7%A7%8D%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、注册组件，直接调用"><a href="#一、注册组件，直接调用" class="headerlink" title="一、注册组件，直接调用"></a>一、注册组件，直接调用</h2><p>这种比较常见</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-dialog</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> MyDialog <span class="keyword">from</span> <span class="string">'@/components'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">        components: &#123;</span><br><span class="line"><span class="actionscript">            <span class="string">'my-dialog'</span>: MyDialog</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="二、通过js调用"><a href="#二、通过js调用" class="headerlink" title="二、通过js调用"></a>二、通过js调用</h2><p>使用场景：登陆弹窗，付费弹窗</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VipPop <span class="keyword">from</span> <span class="string">'./VipPop'</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VipPopup</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(Vue, options) &#123;</span><br><span class="line">        <span class="keyword">this</span>.vipPop = Vue.extend(VipPop);</span><br><span class="line">        <span class="keyword">this</span>.popupInstance = <span class="keyword">new</span> <span class="keyword">this</span>.vipPop(&#123;</span><br><span class="line">            data() &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    title: <span class="string">'成为VIP，开启新特权'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            propsData: &#123;&#125;,</span><br><span class="line">            extends: options</span><br><span class="line">        &#125;).$mount();</span><br><span class="line">    &#125;</span><br><span class="line">    show(obj) &#123;</span><br><span class="line">        obj.title &amp;&amp; (<span class="keyword">this</span>.popupInstance.title = obj.title);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.el) &#123;</span><br><span class="line">            <span class="keyword">this</span>.el.style.display = <span class="string">'block'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.el = <span class="keyword">this</span>.popupInstance.$el;</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>.el)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">document</span>.body.classList.add(<span class="string">'van-overflow-hidden'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    hide() &#123;</span><br><span class="line">        <span class="built_in">document</span>.body.classList.remove(<span class="string">'van-overflow-hidden'</span>)</span><br><span class="line">        <span class="keyword">this</span>.el &amp;&amp; (<span class="keyword">this</span>.el.style.display = <span class="string">'none'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    remove() &#123;</span><br><span class="line">        <span class="built_in">document</span>.body.classList.remove(<span class="string">'van-overflow-hidden'</span>)</span><br><span class="line">        <span class="keyword">this</span>.el &amp;&amp; <span class="keyword">this</span>.el.remove();</span><br><span class="line">        <span class="keyword">this</span>.el = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">        install: <span class="function"><span class="keyword">function</span>(<span class="params">Vue, options</span>) </span>&#123;</span><br><span class="line">            Vue.prototype.$vipPop = <span class="keyword">new</span> VipPopup(Vue, options);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.van-overflow-hidden</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden <span class="meta">!important</span>;</span><br><span class="line">    <span class="comment">/**禁止背景滚动条**/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在main.js中引入这个组件</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">"./router.js"</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store'</span></span><br><span class="line"><span class="keyword">import</span> VipPop <span class="keyword">from</span> <span class="string">'@/components/VipPop'</span></span><br><span class="line">Vue.use(VipPop, &#123;</span><br><span class="line">    router,</span><br><span class="line">    store</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="三、以指令的形式调用"><a href="#三、以指令的形式调用" class="headerlink" title="三、以指令的形式调用"></a>三、以指令的形式调用</h2><p>使用场景：加载动画</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">const</span> LoadingConstructor = Vue.extend(<span class="built_in">require</span>(<span class="string">'./Loading.vue'</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    install: <span class="function"><span class="params">Vue</span> =&gt;</span> &#123;</span><br><span class="line">        Vue.directive(<span class="string">'loading'</span>, &#123; <span class="comment">// 指令的关键</span></span><br><span class="line">            bind: <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> loading = <span class="keyword">new</span> LoadingConstructor(&#123; <span class="comment">// 实例化一个loading</span></span><br><span class="line">                    el: <span class="built_in">document</span>.createElement(<span class="string">'div'</span>),</span><br><span class="line">                    data: &#123;</span><br><span class="line">                        text: el.getAttribute(<span class="string">'loading-text'</span>), <span class="comment">// 通过loading-text属性获取loading的文字</span></span><br><span class="line">                        fullscreen: !!binding.modifiers.fullscreen</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                el.instance = loading; <span class="comment">// el.instance是个Vue实例</span></span><br><span class="line">                el.loading = loading.$el; <span class="comment">// el.loading的DOM元素是loading.$el</span></span><br><span class="line">                el.loadingStyle = &#123;&#125;;</span><br><span class="line">                toggleLoading(el, binding);</span><br><span class="line">            &#125;,</span><br><span class="line">            update: <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123;</span><br><span class="line">                el.instance.setText(el.getAttribute(<span class="string">'loading-text'</span>))</span><br><span class="line">                <span class="keyword">if</span> (binding.oldValue !== binding.value) &#123;</span><br><span class="line">                    toggleLoading(el, binding)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            unbind: <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123; <span class="comment">// 解绑</span></span><br><span class="line">                <span class="keyword">if</span> (el.domInserted) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (binding.modifiers.fullscreen) &#123;</span><br><span class="line">                        <span class="built_in">document</span>.body.removeChild(el.loading);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        el.loading &amp;&amp;</span><br><span class="line">                            el.loading.parentNode &amp;&amp;</span><br><span class="line">                            el.loading.parentNode.removeChild(el.loading);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> toggleLoading = <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123; <span class="comment">// 用于控制Loading的出现与消失</span></span><br><span class="line">            <span class="keyword">if</span> (binding.value) &#123;</span><br><span class="line">                Vue.nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (binding.modifiers.fullscreen) &#123; <span class="comment">// 如果是全屏</span></span><br><span class="line">                        el.originalPosition = <span class="built_in">document</span>.body.style.position;</span><br><span class="line">                        el.originalOverflow = <span class="built_in">document</span>.body.style.overflow;</span><br><span class="line">                        insertDom(<span class="built_in">document</span>.body, el, binding); <span class="comment">// 插入dom</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        el.originalPosition = el.style.position;</span><br><span class="line">                        insertDom(el, el, binding); <span class="comment">// 如果非全屏，插入元素自身</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (el.domVisible) &#123;</span><br><span class="line">                    el.instance.$on(<span class="string">'after-leave'</span>, () =&gt; &#123;</span><br><span class="line">                        el.domVisible = <span class="literal">false</span>;</span><br><span class="line">                        <span class="keyword">if</span> (binding.modifiers.fullscreen &amp;&amp; el.originalOverflow !== <span class="string">'hidden'</span>) &#123;</span><br><span class="line">                            <span class="built_in">document</span>.body.style.overflow = el.originalOverflow;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (binding.modifiers.fullscreen) &#123;</span><br><span class="line">                            <span class="built_in">document</span>.body.style.position = el.originalPosition;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            el.style.position = el.originalPosition;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    el.instance.visible = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> insertDom = <span class="function">(<span class="params">parent, el, binding</span>) =&gt;</span> &#123; <span class="comment">// 插入dom的逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!el.domVisible) &#123;</span><br><span class="line">                <span class="built_in">Object</span>.keys(el.loadingStyle).forEach(<span class="function"><span class="params">property</span> =&gt;</span> &#123;</span><br><span class="line">                    el.loading.style[property] = el.loadingStyle[property];</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">if</span> (el.originalPosition !== <span class="string">'absolute'</span>) &#123;</span><br><span class="line">                    parent.style.position = <span class="string">'relative'</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (binding.modifiers.fullscreen) &#123;</span><br><span class="line">                    parent.style.overflow = <span class="string">'hidden'</span></span><br><span class="line">                &#125;</span><br><span class="line">                el.domVisible = <span class="literal">true</span>;</span><br><span class="line">                parent.appendChild(el.loading) <span class="comment">// 插入的是el.loading而不是el本身</span></span><br><span class="line">                Vue.nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    el.instance.visible = <span class="literal">true</span>;</span><br><span class="line">                &#125;);</span><br><span class="line">                el.domInserted = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-loading.fullscreen</span>=<span class="string">"loading"</span> <span class="attr">loading-text</span>=<span class="string">"正在加载中"</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> + vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>文字超出固定行数隐藏</title>
+      <link href="/2020/06/04/js%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E5%9B%BA%E5%AE%9A%E8%A1%8C%E6%95%B0%E9%9A%90%E8%97%8F/"/>
+      <url>/2020/06/04/js%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E5%9B%BA%E5%AE%9A%E8%A1%8C%E6%95%B0%E9%9A%90%E8%97%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><div class="img_box"><img src="/images/example1.png"></div><h2 id="实现超出单行隐藏"><a href="#实现超出单行隐藏" class="headerlink" title="实现超出单行隐藏"></a>实现超出单行隐藏</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="实现超出三行隐藏"><a href="#实现超出三行隐藏" class="headerlink" title="实现超出三行隐藏"></a>实现超出三行隐藏</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="判断是否有隐藏内容"><a href="#判断是否有隐藏内容" class="headerlink" title="判断是否有隐藏内容"></a>判断是否有隐藏内容</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dom = <span class="built_in">document</span>.querySelect(<span class="string">'.text'</span>);</span><br><span class="line"><span class="keyword">return</span> dom.scrollHeight &gt; dom.clientHeight;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> + js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
