@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenshanshu.github.io/2020/06/15/hello-world/"/>
-  <updated>2021-10-19T11:06:14.742Z</updated>
+  <updated>2021-10-21T06:30:51.961Z</updated>
   <id>https://chenshanshu.github.io/2020/06/15/hello-world/</id>
   
   <author>
@@ -17,18 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>flask学习笔记</title>
-    <link href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/10/19/flask%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://chenshanshu.github.io/2020/06/15/hello-world/2021/10/19/flask%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <title>flask实战</title>
+    <link href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/10/19/flask%E5%AE%9E%E6%88%98/"/>
+    <id>https://chenshanshu.github.io/2020/06/15/hello-world/2021/10/19/flask%E5%AE%9E%E6%88%98/</id>
     <published>2021-10-19T07:41:16.000Z</published>
-    <updated>2021-10-19T11:06:14.742Z</updated>
+    <updated>2021-10-21T06:30:51.961Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="flask学习笔记"><a href="#flask学习笔记" class="headerlink" title="flask学习笔记"></a>flask学习笔记</h2><p>安装Flask</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Flask</span><br></pre></td></tr></table></figure><a id="more"></a><p>flask的基本使用方法</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="windows系统python3虚拟环境"><a href="#windows系统python3虚拟环境" class="headerlink" title="windows系统python3虚拟环境"></a>windows系统python3虚拟环境</h2><ul><li>新建文件夹venv，然后执行<code>python -m venv venv</code></li><li>运行<code>.\Scripts\activate.bat</code>启动虚拟环境<div class="tip">cmd中需要使用反斜线，否则无法启动</div></li></ul><h2 id="Flask服务"><a href="#Flask服务" class="headerlink" title="Flask服务"></a>Flask服务</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,request</span><br><span class="line"><span class="keyword">from</span> markupsafe <span class="keyword">import</span> escape</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hellow world"</span></span><br><span class="line"><span class="comment">#通过route()装饰器来把函数绑定到URL </span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/path/&lt;path:subpath&gt;")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_subpath</span><span class="params">(subpath)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">f'subpath <span class="subst">&#123;escape(subpath)&#125;</span>'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app.run(host=<span class="string">"0.0.0.0"</span>, port=<span class="number">5000</span>)</span><br></pre></td></tr></table></figure><h3 id="转换器类型："><a href="#转换器类型：" class="headerlink" title="转换器类型："></a>转换器类型：</h3><table><thead><tr><th align="center">字段</th><th align="right">说明</th></tr></thead><tbody><tr><td align="center"><code>string</code></td><td align="right">（缺省值）接受任何不包含斜杆的文本</td></tr><tr><td align="center"><code>int</code></td><td align="right">接受正整数</td></tr><tr><td align="center"><code>float</code></td><td align="right">接受正浮点数</td></tr><tr><td align="center"><code>path</code></td><td align="right">类似 <code>string</code> ，但可以包含斜杠</td></tr><tr><td align="center"><code>uuid</code></td><td align="right">接受 UUID 字符串</td></tr></tbody></table><h3 id="URL构建"><a href="#URL构建" class="headerlink" title="URL构建"></a>URL构建</h3><p>url_for()函数用于构建指定函数的URL, 函数名称作为第一个参数，可接受任意个关键字参数</p><h3 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h3><p>只要在您的包或模块旁边创建一个名为 static 的文件夹就行了。 静态文件位于应用的 /static 中。<br> <code>url_for(&#39;static&#39;, filename=&#39;style.css&#39;)</code></p><h2 id="Flask服务启动"><a href="#Flask服务启动" class="headerlink" title="Flask服务启动"></a>Flask服务启动</h2><ul><li>安装Flask模块<code>pip install Flask</code></li><li>编写好脚本保存为<code>server.py</code></li><li><code>set FLASK_APP=server</code>  </li><li>需要打开开发功能<code>set FLASK_ENV=development</code></li><li>运行<code>flask run</code></li></ul><a id="more"></a><h2 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a>更多用法</h2><h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>调用示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.logger.debug(<span class="string">'A value for debugging'</span>)</span><br><span class="line">app.logger.warning(<span class="string">'A warning occurred (%d apples)'</span>, <span class="number">42</span>)</span><br><span class="line">app.logger.error(<span class="string">'An error occurred'</span>)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;flask学习笔记&quot;&gt;&lt;a href=&quot;#flask学习笔记&quot; class=&quot;headerlink&quot; title=&quot;flask学习笔记&quot;&gt;&lt;/a&gt;flask学习笔记&lt;/h2&gt;&lt;p&gt;安装Flask&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install Flask&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h2 id=&quot;windows系统python3虚拟环境&quot;&gt;&lt;a href=&quot;#windows系统python3虚拟环境&quot; class=&quot;headerlink&quot; title=&quot;windows系统python3虚拟环境&quot;&gt;&lt;/a&gt;windows系统python3虚拟环境&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;新建文件夹venv，然后执行&lt;code&gt;python -m venv venv&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;.\Scripts\activate.bat&lt;/code&gt;启动虚拟环境&lt;div class=&quot;tip&quot;&gt;cmd中需要使用反斜线，否则无法启动&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Flask服务&quot;&gt;&lt;a href=&quot;#Flask服务&quot; class=&quot;headerlink&quot; title=&quot;Flask服务&quot;&gt;&lt;/a&gt;Flask服务&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; flask &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; Flask,request&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; markupsafe &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; escape&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;app = Flask(__name__)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@app.route(&quot;/&quot;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;hellow world&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#通过route()装饰器来把函数绑定到URL &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@app.route(&quot;/path/&amp;lt;path:subpath&amp;gt;&quot;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;show_subpath&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(subpath)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;f&#39;subpath &lt;span class=&quot;subst&quot;&gt;&amp;#123;escape(subpath)&amp;#125;&lt;/span&gt;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    app.run(host=&lt;span class=&quot;string&quot;&gt;&quot;0.0.0.0&quot;&lt;/span&gt;, port=&lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;转换器类型：&quot;&gt;&lt;a href=&quot;#转换器类型：&quot; class=&quot;headerlink&quot; title=&quot;转换器类型：&quot;&gt;&lt;/a&gt;转换器类型：&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;字段&lt;/th&gt;
+&lt;th align=&quot;right&quot;&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;（缺省值）接受任何不包含斜杆的文本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;接受正整数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;接受正浮点数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;code&gt;path&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;类似 &lt;code&gt;string&lt;/code&gt; ，但可以包含斜杠&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;code&gt;uuid&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;接受 UUID 字符串&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&quot;URL构建&quot;&gt;&lt;a href=&quot;#URL构建&quot; class=&quot;headerlink&quot; title=&quot;URL构建&quot;&gt;&lt;/a&gt;URL构建&lt;/h3&gt;&lt;p&gt;url_for()函数用于构建指定函数的URL, 函数名称作为第一个参数，可接受任意个关键字参数&lt;/p&gt;
+&lt;h3 id=&quot;静态文件&quot;&gt;&lt;a href=&quot;#静态文件&quot; class=&quot;headerlink&quot; title=&quot;静态文件&quot;&gt;&lt;/a&gt;静态文件&lt;/h3&gt;&lt;p&gt;只要在您的包或模块旁边创建一个名为 static 的文件夹就行了。 静态文件位于应用的 /static 中。&lt;br&gt; &lt;code&gt;url_for(&amp;#39;static&amp;#39;, filename=&amp;#39;style.css&amp;#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Flask服务启动&quot;&gt;&lt;a href=&quot;#Flask服务启动&quot; class=&quot;headerlink&quot; title=&quot;Flask服务启动&quot;&gt;&lt;/a&gt;Flask服务启动&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;安装Flask模块&lt;code&gt;pip install Flask&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;编写好脚本保存为&lt;code&gt;server.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;set FLASK_APP=server&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;需要打开开发功能&lt;code&gt;set FLASK_ENV=development&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;flask run&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -36,7 +79,7 @@
       <category term="+ python" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/categories/python/"/>
     
     
-      <category term="python、flask" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/python%E3%80%81flask/"/>
+      <category term="python" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/python/"/>
     
   </entry>
   
@@ -45,7 +88,7 @@
     <link href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/07/28/css3%E5%8A%A8%E7%94%BB/"/>
     <id>https://chenshanshu.github.io/2020/06/15/hello-world/2021/07/28/css3%E5%8A%A8%E7%94%BB/</id>
     <published>2021-07-28T08:16:10.000Z</published>
-    <updated>2021-09-08T09:34:06.641Z</updated>
+    <updated>2021-10-20T06:23:35.392Z</updated>
     
     <content type="html"><![CDATA[<h3 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h3><hr><h4 id=""><a href="#" class="headerlink" title=""></a></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">sticky</span>;</span><br><span class="line"><span class="selector-tag">top</span>: 0;</span><br><span class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">translateZ</span>(<span class="selector-tag">-1px</span>) <span class="selector-tag">scale</span>(2);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateZ</span>(<span class="selector-tag">-1px</span>) <span class="selector-tag">scale</span>(2);</span><br><span class="line"><span class="selector-tag">-webkit-transform-origin</span>: 0 0;</span><br><span class="line"><span class="selector-tag">transform-origin</span>: 0 0;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -60,6 +103,8 @@
     </summary>
     
     
+    
+      <category term="css" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/css/"/>
     
   </entry>
   
@@ -93,7 +138,7 @@
     <link href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/"/>
     <id>https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/</id>
     <published>2021-04-23T07:17:35.000Z</published>
-    <updated>2021-06-09T11:14:57.841Z</updated>
+    <updated>2021-10-20T06:23:23.907Z</updated>
     
     <content type="html"><![CDATA[<h3 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h3>]]></content>
     
@@ -108,7 +153,7 @@
     
     
     
-      <category term="download" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/download/"/>
+      <category term="js" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/js/"/>
     
   </entry>
   
@@ -117,7 +162,7 @@
     <link href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/"/>
     <id>https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/</id>
     <published>2021-04-07T02:22:41.000Z</published>
-    <updated>2021-04-23T06:55:55.531Z</updated>
+    <updated>2021-10-20T06:22:31.917Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>打印API：<br>window.print()</p></blockquote><h3 id="需求：打印局部内容，如打印下面页面类名-printBox-里面的内容"><a href="#需求：打印局部内容，如打印下面页面类名-printBox-里面的内容" class="headerlink" title="需求：打印局部内容，如打印下面页面类名 printBox 里面的内容"></a>需求：打印局部内容，如打印下面页面类名 <strong>printBox</strong> 里面的内容</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>页面内容...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"printBtn"</span>&gt;</span>打印报告<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"printContent"</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"printBox"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>打印报告<span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>报告内容...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="实现：已知A4纸张尺寸为297mm-210mm，通过创建-iframe-来实现打印；"><a href="#实现：已知A4纸张尺寸为297mm-210mm，通过创建-iframe-来实现打印；" class="headerlink" title="实现：已知A4纸张尺寸为297mm*210mm，通过创建 iframe 来实现打印；"></a>实现：已知A4纸张尺寸为297mm*210mm，通过创建 <strong>iframe</strong> 来实现打印；</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> frameId = <span class="string">'printFrame'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;boolean&#125;</span> </span>portrait 是否纵向打印</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> print = <span class="function"><span class="keyword">function</span>(<span class="params">portrait</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> iframe = <span class="built_in">document</span>.getElementById(frameId);</span><br><span class="line">    <span class="keyword">if</span>(!iframe)&#123;</span><br><span class="line">        <span class="keyword">var</span> frameStyle = portrait ?</span><br><span class="line">        <span class="string">`&lt;style&gt;@page&#123;size:A4 portrait;margin:0mm;width:297mm;min-height:200mm;&#125;&lt;/style&gt;`</span>:</span><br><span class="line">        <span class="string">`&lt;style&gt;@page&#123;size:A4 landscape;margin:0mm;width:210mm;min-height:280mm;&#125;&lt;/style&gt;`</span>;</span><br><span class="line">        <span class="comment">// 当高度设置为最大值，会出现打印内容后面多出一张空白页</span></span><br><span class="line">        <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">"printContent"</span>);</span><br><span class="line">        iframe = <span class="built_in">document</span>.createElement(<span class="string">'IFRAME'</span>);</span><br><span class="line">        iframe.setAttribute(frameId);</span><br><span class="line">        iframe.setAttribute(<span class="string">'style'</span>, <span class="string">'position:absolute;width:0px;height:0px;left:-500px;top:-500px;'</span>);</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(iframe);</span><br><span class="line">        <span class="keyword">var</span> doc = iframe.contentWindow.document;</span><br><span class="line">        doc.write(frameStyle);</span><br><span class="line">        doc.write(<span class="string">`&lt;div&gt;<span class="subst">$&#123;el.innerHTML&#125;</span>&lt;/div&gt;`</span>);</span><br><span class="line">        doc.close();</span><br><span class="line">        iframe.contentWindow.focus();  </span><br><span class="line">    &#125;</span><br><span class="line">    iframe.contentWindow.print();</span><br><span class="line">    <span class="keyword">if</span> (navigator.userAgent.indexOf(<span class="string">"MSIE"</span>) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">document</span>.body.removeChild(iframe);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul><li>当打印内容带有背景时候记得勾选背景图形选项</li><li>此处只测试了Chrome，兼容性未处理</li></ul><h3 id="扩展：打印机型号不同时打印内容也有差别，所以可以通过用canvas来绘制内容-可以参考微信小程序生成分享图功能-，然后生成图片放入第二步的iframe中。"><a href="#扩展：打印机型号不同时打印内容也有差别，所以可以通过用canvas来绘制内容-可以参考微信小程序生成分享图功能-，然后生成图片放入第二步的iframe中。" class="headerlink" title="扩展：打印机型号不同时打印内容也有差别，所以可以通过用canvas来绘制内容(可以参考微信小程序生成分享图功能)，然后生成图片放入第二步的iframe中。"></a>扩展：打印机型号不同时打印内容也有差别，所以可以通过用canvas来绘制内容(<font color=green>可以参考微信小程序生成分享图功能</font>)，然后生成图片放入第二步的iframe中。</h3>]]></content>
     
@@ -135,7 +180,7 @@
     
     
     
-      <category term="web print iframe" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/web-print-iframe/"/>
+      <category term="js" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/js/"/>
     
   </entry>
   
@@ -217,7 +262,7 @@
     <link href="https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/28/git-%E6%89%8B%E5%86%8C/"/>
     <id>https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/28/git-%E6%89%8B%E5%86%8C/</id>
     <published>2020-10-28T07:34:41.000Z</published>
-    <updated>2021-07-05T03:20:44.400Z</updated>
+    <updated>2021-10-20T06:23:43.919Z</updated>
     
     <content type="html"><![CDATA[<h3 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h3><hr><h5 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">新建本地新分支</td><td align="left"><code>git branch branch</code></td></tr><tr><td align="left">新建并切换到本地新分支</td><td align="left"><code>git checkout -b branch</code></td></tr><tr><td align="left">新建远程分支</td><td align="left"><code>git push origin branch:remoteBranch</code></td></tr><tr><td align="left">删除本地分支</td><td align="left"><code>git branch -d dev</code></td></tr><tr><td align="left">删除远程分支</td><td align="left"><code>git push origin :remoteBranch</code></td></tr><tr><td align="left">设置本地追踪远程分支</td><td align="left"><code>git branch --set-upstream-to=origin/remoteBranch localBranch</code></td></tr><tr><td align="left">直接将远程分支拉取并在本地建立关联分支</td><td align="left"><code>git checkout -b localBranch origin/remoteBranch</code>    <br><code>or</code><br><code>git fetch origin master:test</code></td></tr></tbody></table><h5 id="强制操作"><a href="#强制操作" class="headerlink" title="强制操作"></a>强制操作</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">强制覆盖本地修改</td><td align="left"><code>git fetch --all</code><br><code>git reset --hard origin/master</code><br><code>git pull</code></td></tr><tr><td align="left">强制上传</td><td align="left"><code>git push -f origin remoteBranch</code></td></tr></tbody></table><h5 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">查看本地分支与远程关联情况</td><td align="left"><code>git branch -vv</code></td></tr><tr><td align="left">查看本地仓库状态</td><td align="left"><code>git status</code></td></tr><tr><td align="left">查看本地操作</td><td align="left"><code>git reflog</code></td></tr><tr><td align="left">比较本地与远程</td><td align="left"><code>git log -p master  ..origin/master</code></td></tr><tr><td align="left">查看某个提交</td><td align="left"><code>git show commitID</code></td></tr><tr><td align="left">修改主机地址</td><td align="left"><code>git remote set-url origin ssh.aaaa.git</code><br><code>or</code><br><code>git remote rm origin</code><br><code>git remote add origin [url]</code></td></tr><tr><td align="left">版本回退</td><td align="left"><code>git reset --hard commitID</code></td></tr><tr><td align="left">版本回滚</td><td align="left"><code>git revert HEAD</code></td></tr><tr><td align="left">将指定的提交（commit）应用于其他分支</td><td align="left"><code>git cherry-pick commitID</code>//分支名</td></tr><tr><td align="left">Cherry pick 支持一次转移多个提交</td><td align="left"><code>git cherry-pick A^..B</code>//包含A和B</td></tr></tbody></table>]]></content>
     
@@ -232,6 +277,8 @@
     </summary>
     
     
+    
+      <category term="git" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/git/"/>
     
   </entry>
   
@@ -319,7 +366,7 @@
     <link href="https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/09/python%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/09/python%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
     <published>2020-10-09T10:20:01.000Z</published>
-    <updated>2021-03-04T06:49:48.060Z</updated>
+    <updated>2021-10-20T06:24:00.665Z</updated>
     
     <content type="html"><![CDATA[<p>111</p>]]></content>
     
@@ -337,7 +384,7 @@
       <category term="+ linux" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/categories/linux/"/>
     
     
-      <category term="shell" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/shell/"/>
+      <category term="python" scheme="https://chenshanshu.github.io/2020/06/15/hello-world/tags/python/"/>
     
   </entry>
   

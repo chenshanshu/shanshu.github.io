@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2021/10/19/flask%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2021/10/19/flask%E5%AE%9E%E6%88%98/</loc>
     
-    <lastmod>2021-10-19T11:06:14.742Z</lastmod>
+    <lastmod>2021-10-21T06:30:51.961Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/09/python%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    
+    <lastmod>2021-10-20T06:24:00.665Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/28/git-%E6%89%8B%E5%86%8C/</loc>
+    
+    <lastmod>2021-10-20T06:23:43.919Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2021/07/28/css3%E5%8A%A8%E7%94%BB/</loc>
     
-    <lastmod>2021-09-08T09:34:06.641Z</lastmod>
+    <lastmod>2021-10-20T06:23:35.392Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/</loc>
+    
+    <lastmod>2021-10-20T06:23:23.907Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/</loc>
+    
+    <lastmod>2021-10-20T06:22:31.917Z</lastmod>
     
   </url>
   
@@ -19,27 +47,6 @@
     <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2021/06/21/%E4%B8%80%E7%A7%8D%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2021-07-05T03:20:44.416Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/28/git-%E6%89%8B%E5%86%8C/</loc>
-    
-    <lastmod>2021-07-05T03:20:44.400Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/</loc>
-    
-    <lastmod>2021-06-09T11:14:57.841Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/</loc>
-    
-    <lastmod>2021-04-23T06:55:55.531Z</lastmod>
     
   </url>
   
@@ -73,13 +80,6 @@
   
   <url>
     <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2020/06/04/linux%E5%AE%89%E8%A3%85ngix%E5%8F%8Ardesktop%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2021-03-04T06:49:48.060Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/09/python%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     
     <lastmod>2021-03-04T06:49:48.060Z</lastmod>
     

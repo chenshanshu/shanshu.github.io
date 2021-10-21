@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>flask学习笔记</title>
-      <link href="/2021/10/19/flask%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>/2021/10/19/flask%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <title>flask实战</title>
+      <link href="/2021/10/19/flask%E5%AE%9E%E6%88%98/"/>
+      <url>/2021/10/19/flask%E5%AE%9E%E6%88%98/</url>
       
-        <content type="html"><![CDATA[<h2 id="flask学习笔记"><a href="#flask学习笔记" class="headerlink" title="flask学习笔记"></a>flask学习笔记</h2><p>安装Flask</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Flask</span><br></pre></td></tr></table></figure><a id="more"></a><p>flask的基本使用方法</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="windows系统python3虚拟环境"><a href="#windows系统python3虚拟环境" class="headerlink" title="windows系统python3虚拟环境"></a>windows系统python3虚拟环境</h2><ul><li>新建文件夹venv，然后执行<code>python -m venv venv</code></li><li>运行<code>.\Scripts\activate.bat</code>启动虚拟环境<div class="tip">cmd中需要使用反斜线，否则无法启动</div></li></ul><h2 id="Flask服务"><a href="#Flask服务" class="headerlink" title="Flask服务"></a>Flask服务</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,request</span><br><span class="line"><span class="keyword">from</span> markupsafe <span class="keyword">import</span> escape</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hellow world"</span></span><br><span class="line"><span class="comment">#通过route()装饰器来把函数绑定到URL </span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/path/&lt;path:subpath&gt;")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_subpath</span><span class="params">(subpath)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">f'subpath <span class="subst">&#123;escape(subpath)&#125;</span>'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app.run(host=<span class="string">"0.0.0.0"</span>, port=<span class="number">5000</span>)</span><br></pre></td></tr></table></figure><h3 id="转换器类型："><a href="#转换器类型：" class="headerlink" title="转换器类型："></a>转换器类型：</h3><table><thead><tr><th align="center">字段</th><th align="right">说明</th></tr></thead><tbody><tr><td align="center"><code>string</code></td><td align="right">（缺省值）接受任何不包含斜杆的文本</td></tr><tr><td align="center"><code>int</code></td><td align="right">接受正整数</td></tr><tr><td align="center"><code>float</code></td><td align="right">接受正浮点数</td></tr><tr><td align="center"><code>path</code></td><td align="right">类似 <code>string</code> ，但可以包含斜杠</td></tr><tr><td align="center"><code>uuid</code></td><td align="right">接受 UUID 字符串</td></tr></tbody></table><h3 id="URL构建"><a href="#URL构建" class="headerlink" title="URL构建"></a>URL构建</h3><p>url_for()函数用于构建指定函数的URL, 函数名称作为第一个参数，可接受任意个关键字参数</p><h3 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h3><p>只要在您的包或模块旁边创建一个名为 static 的文件夹就行了。 静态文件位于应用的 /static 中。<br> <code>url_for(&#39;static&#39;, filename=&#39;style.css&#39;)</code></p><h2 id="Flask服务启动"><a href="#Flask服务启动" class="headerlink" title="Flask服务启动"></a>Flask服务启动</h2><ul><li>安装Flask模块<code>pip install Flask</code></li><li>编写好脚本保存为<code>server.py</code></li><li><code>set FLASK_APP=server</code>  </li><li>需要打开开发功能<code>set FLASK_ENV=development</code></li><li>运行<code>flask run</code></li></ul><a id="more"></a><h2 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a>更多用法</h2><h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>调用示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.logger.debug(<span class="string">'A value for debugging'</span>)</span><br><span class="line">app.logger.warning(<span class="string">'A warning occurred (%d apples)'</span>, <span class="number">42</span>)</span><br><span class="line">app.logger.error(<span class="string">'An error occurred'</span>)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -20,7 +20,7 @@
       
         <tags>
             
-            <tag> python、flask </tag>
+            <tag> python </tag>
             
         </tags>
       
@@ -36,6 +36,12 @@
         <content type="html"><![CDATA[<h3 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h3><hr><h4 id=""><a href="#" class="headerlink" title=""></a></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">sticky</span>;</span><br><span class="line"><span class="selector-tag">top</span>: 0;</span><br><span class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">translateZ</span>(<span class="selector-tag">-1px</span>) <span class="selector-tag">scale</span>(2);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateZ</span>(<span class="selector-tag">-1px</span>) <span class="selector-tag">scale</span>(2);</span><br><span class="line"><span class="selector-tag">-webkit-transform-origin</span>: 0 0;</span><br><span class="line"><span class="selector-tag">transform-origin</span>: 0 0;</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
       
     </entry>
     
@@ -71,7 +77,7 @@
       
         <tags>
             
-            <tag> download </tag>
+            <tag> js </tag>
             
         </tags>
       
@@ -90,7 +96,7 @@
       
         <tags>
             
-            <tag> web print iframe </tag>
+            <tag> js </tag>
             
         </tags>
       
@@ -163,6 +169,12 @@
         <content type="html"><![CDATA[<h3 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h3><hr><h5 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">新建本地新分支</td><td align="left"><code>git branch branch</code></td></tr><tr><td align="left">新建并切换到本地新分支</td><td align="left"><code>git checkout -b branch</code></td></tr><tr><td align="left">新建远程分支</td><td align="left"><code>git push origin branch:remoteBranch</code></td></tr><tr><td align="left">删除本地分支</td><td align="left"><code>git branch -d dev</code></td></tr><tr><td align="left">删除远程分支</td><td align="left"><code>git push origin :remoteBranch</code></td></tr><tr><td align="left">设置本地追踪远程分支</td><td align="left"><code>git branch --set-upstream-to=origin/remoteBranch localBranch</code></td></tr><tr><td align="left">直接将远程分支拉取并在本地建立关联分支</td><td align="left"><code>git checkout -b localBranch origin/remoteBranch</code>    <br><code>or</code><br><code>git fetch origin master:test</code></td></tr></tbody></table><h5 id="强制操作"><a href="#强制操作" class="headerlink" title="强制操作"></a>强制操作</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">强制覆盖本地修改</td><td align="left"><code>git fetch --all</code><br><code>git reset --hard origin/master</code><br><code>git pull</code></td></tr><tr><td align="left">强制上传</td><td align="left"><code>git push -f origin remoteBranch</code></td></tr></tbody></table><h5 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h5><table><thead><tr><th align="left">操作</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">查看本地分支与远程关联情况</td><td align="left"><code>git branch -vv</code></td></tr><tr><td align="left">查看本地仓库状态</td><td align="left"><code>git status</code></td></tr><tr><td align="left">查看本地操作</td><td align="left"><code>git reflog</code></td></tr><tr><td align="left">比较本地与远程</td><td align="left"><code>git log -p master  ..origin/master</code></td></tr><tr><td align="left">查看某个提交</td><td align="left"><code>git show commitID</code></td></tr><tr><td align="left">修改主机地址</td><td align="left"><code>git remote set-url origin ssh.aaaa.git</code><br><code>or</code><br><code>git remote rm origin</code><br><code>git remote add origin [url]</code></td></tr><tr><td align="left">版本回退</td><td align="left"><code>git reset --hard commitID</code></td></tr><tr><td align="left">版本回滚</td><td align="left"><code>git revert HEAD</code></td></tr><tr><td align="left">将指定的提交（commit）应用于其他分支</td><td align="left"><code>git cherry-pick commitID</code>//分支名</td></tr><tr><td align="left">Cherry pick 支持一次转移多个提交</td><td align="left"><code>git cherry-pick A^..B</code>//包含A和B</td></tr></tbody></table>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
       
     </entry>
     
@@ -260,7 +272,7 @@
       
         <tags>
             
-            <tag> shell </tag>
+            <tag> python </tag>
             
         </tags>
       
