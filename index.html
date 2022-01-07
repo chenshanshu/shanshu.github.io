@@ -1,202 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="前端开发 javascript css html 样式">
+    <meta name="author" content="bingo">
+    
+    <title>
+        
+        Chenss&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
-<link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
 
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"chenshanshu.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"chenshanshu.github.io","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/bingo.jpg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-
-  <meta name="description" content="前端开发 javascript css html 样式">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBlog">
-<meta property="og:url" content="https://chenshanshu.github.io/2020/06/15/hello-world/index.html">
-<meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="前端开发 javascript css html 样式">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="chenss">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://chenshanshu.github.io/2020/06/15/hello-world/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'en'
-  };
-</script>
-
-  <title>MyBlog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="MyBlog" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="MyBlog" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">MyBlog</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+</div>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+<main class="page-container">
 
-          <div class="content index posts-expand">
+    
+        <div class="first-screen-container flex-center fade-in-down-animation">
+    <div class="content flex-center">
+        <div class="description">
+            Keep writing and Keep loving.
+        </div>
+        
+    </div>
+</div>
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content has-first-screen">
+        <div class="left">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/12/31/2021-12-31-%E5%89%8D%E7%AB%AF%E5%88%86%E4%BA%AB/">
+                <a class="logo-image" href="/">
+                    <img src="/images/header.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Chenss&#39;s Blog
+            </a>
+        </div>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/31/2021-12-31-%E5%89%8D%E7%AB%AF%E5%88%86%E4%BA%AB/" class="post-title-link" itemprop="url">2021/12/31 前端分享</a>
-        </h2>
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
+    <div class="window-mask"></div>
 
-              <time title="Created: 2021-12-31 10:16:25 / Modified: 12:24:11" itemprop="dateCreated datePublished" datetime="2021-12-31T10:16:25+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">+ 前端</span></a>
-                </span>
-            </span>
+</header>
 
-          
 
         </div>
-      </header>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        <div class="page-main-content-middle">
 
-      
-          <h2 id="reduce-的用法"><a href="#reduce-的用法" class="headerlink" title="reduce()的用法"></a>reduce()的用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.reduce(callback,[initialValue])</span><br></pre></td></tr></table></figure>
+            <div class="main-content">
+
+                
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/12/31/2021-12-31-%E5%89%8D%E7%AB%AF%E5%88%86%E4%BA%AB/">
+                        2021/12/31 前端分享
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <h2 id="reduce-的用法"><a href="#reduce-的用法" class="headerlink" title="reduce()的用法"></a>reduce()的用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.reduce(callback,[initialValue])</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li>数组求和</li>
@@ -217,87 +171,34 @@
 <li>将多维数组转为一维</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">    [<span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">    [<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">    [<span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]]</span><br><span class="line">]</span><br><span class="line"><span class="keyword">const</span> newArr = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> pre.concat(<span class="built_in">Array</span>.isArray(cur) ? newArr(cur) : cur), [])</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(newArr(arr)); <span class="comment">//[0, 1, 2, 3, 4, 5, 6, 7]</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/31/2021-12-31-%E5%89%8D%E7%AB%AF%E5%88%86%E4%BA%AB/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Dec 31 2021 10:16:25 GMT+0800">2021-12-31</span></span>
         
-      
+        
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+    <a href="/2021/12/31/2021-12-31-%E5%89%8D%E7%AB%AF%E5%88%86%E4%BA%AB/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/10/19/flask-auth/">
+            </li>
+        
+            <li class="home-article-item">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
+                
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/19/flask-auth/" class="post-title-link" itemprop="url">flask-auth</a>
-        </h2>
+                <h3 class="home-article-title">
+                    <a href="/2021/10/19/flask-auth/">
+                        flask-auth
+                    </a>
+                </h3>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-19 15:41:16" itemprop="dateCreated datePublished" datetime="2021-10-19T15:41:16+08:00">2021-10-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-31 10:30:19" itemprop="dateModified" datetime="2021-12-31T10:30:19+08:00">2021-12-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">+ python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一、windows系统python3虚拟环境"><a href="#一、windows系统python3虚拟环境" class="headerlink" title="一、windows系统python3虚拟环境"></a>一、windows系统python3虚拟环境</h2><ul>
+                <div class="home-article-content markdown-body">
+                    
+                        <h2 id="一、windows系统python3虚拟环境"><a href="#一、windows系统python3虚拟环境" class="headerlink" title="一、windows系统python3虚拟环境"></a>一、windows系统python3虚拟环境</h2><ul>
 <li>新建文件夹venv，然后执行<code>python -m venv venv</code></li>
 <li>运行<code>.\Scripts\activate.bat</code>启动虚拟环境<div class="tip">cmd中需要使用反斜线，否则无法启动</div>
 
@@ -343,915 +244,447 @@
 <li>需要打开开发功能<code>set FLASK_ENV=development</code></li>
 <li>运行<code>flask run</code></li>
 </ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/19/flask-auth/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Oct 19 2021 15:41:16 GMT+0800">2021-10-19</span></span>
         
-      
+        
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+    <a href="/2021/10/19/flask-auth/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/07/28/css3%E5%8A%A8%E7%94%BB/">
+            </li>
+        
+            <li class="home-article-item">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
+                
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/28/css3%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">css3动画</a>
-        </h2>
+                <h3 class="home-article-title">
+                    <a href="/2021/07/28/css3%E5%8A%A8%E7%94%BB/">
+                        css3动画
+                    </a>
+                </h3>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-28 16:16:10" itemprop="dateCreated datePublished" datetime="2021-07-28T16:16:10+08:00">2021-07-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-31 10:31:19" itemprop="dateModified" datetime="2021-12-31T10:31:19+08:00">2021-12-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">+ 前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h3><hr>
+                <div class="home-article-content markdown-body">
+                    
+                        <h3 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h3><hr>
 <h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>商品详情页，主图缓动效果</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">sticky</span>;</span><br><span class="line"><span class="selector-tag">top</span>: 0;</span><br><span class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">translateZ</span>(<span class="selector-tag">-1px</span>) <span class="selector-tag">scale</span>(2);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateZ</span>(<span class="selector-tag">-1px</span>) <span class="selector-tag">scale</span>(2);</span><br><span class="line"><span class="selector-tag">-webkit-transform-origin</span>: 0 0;</span><br><span class="line"><span class="selector-tag">transform-origin</span>: 0 0;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/28/css3%E5%8A%A8%E7%94%BB/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 28 2021 16:16:10 GMT+0800">2021-07-28</span></span>
         
-      
+        
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+    <a href="/2021/07/28/css3%E5%8A%A8%E7%94%BB/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/06/21/%E4%B8%80%E7%A7%8D%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/">
+            </li>
+        
+            <li class="home-article-item">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
+                
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/21/%E4%B8%80%E7%A7%8D%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">一种避免重复请求的方法</a>
-        </h2>
+                <h3 class="home-article-title">
+                    <a href="/2021/06/21/%E4%B8%80%E7%A7%8D%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/">
+                        一种避免重复请求的方法
+                    </a>
+                </h3>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-06-21 19:44:50" itemprop="dateCreated datePublished" datetime="2021-06-21T19:44:50+08:00">2021-06-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-31 10:32:00" itemprop="dateModified" datetime="2021-12-31T10:32:00+08:00">2021-12-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="一种避免重复请求的方法"><a href="#一种避免重复请求的方法" class="headerlink" title="一种避免重复请求的方法"></a>一种避免重复请求的方法</h3><hr>
+                <div class="home-article-content markdown-body">
+                    
+                        <h3 id="一种避免重复请求的方法"><a href="#一种避免重复请求的方法" class="headerlink" title="一种避免重复请求的方法"></a>一种避免重复请求的方法</h3><hr>
 <h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>1、需求：小程序在app.js中需要发起一个login请求，在index的onLoad()钩子里要拿到login的返回值进行后续操作。<br>2、通过该方法可以避免在第一次请求未完成时发出第二个请求。</p>
 <h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *	一种避免重复请求的方法,不支持async</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@arg</span></span></span><br><span class="line"><span class="comment"> * 	arg[0]	id				String</span></span><br><span class="line"><span class="comment"> * 	arg[1]	promise函数		Function</span></span><br><span class="line"><span class="comment"> * 	arg[2]	arg[1]的参数		Object</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">let</span> emiter = &#123;&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Emiter</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(...arg) &#123;</span><br><span class="line">		<span class="keyword">const</span> unionKey = <span class="string">'emiter-'</span> + arg[<span class="number">0</span>]</span><br><span class="line">		<span class="keyword">this</span>.emiter = emiter[unionKey] = emiter[unionKey] || &#123;</span><br><span class="line">			resolveQueue: [],</span><br><span class="line">			rejectQueue: []</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">this</span>.methods = arg[<span class="number">1</span>] || <span class="string">''</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.methods !== <span class="string">'function'</span>) <span class="keyword">return</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>.emiter.promiseStatus === <span class="string">'resolved'</span>) &#123;</span><br><span class="line">			setTimeout(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span><br><span class="line">				<span class="keyword">this</span>.emitAll(<span class="keyword">this</span>.emiter.resolveQueue, <span class="keyword">this</span>.emiter.res)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="keyword">this</span>.emiter.promiseStatus) &#123;</span><br><span class="line">			<span class="keyword">this</span>.emiter.promiseStatus = <span class="string">'pending'</span></span><br><span class="line">			<span class="keyword">this</span>.methods(arg[<span class="number">2</span>] || &#123;&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">				setTimeout(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span><br><span class="line">					<span class="keyword">delete</span> <span class="keyword">this</span>.emiter.promiseStatus</span><br><span class="line">				&#125;, <span class="number">1000</span>)</span><br><span class="line">				<span class="keyword">this</span>.emiter.promiseStatus = <span class="string">'resolved'</span></span><br><span class="line">				<span class="keyword">this</span>.emiter.res = res</span><br><span class="line">				<span class="keyword">this</span>.emitAll(<span class="keyword">this</span>.emiter.resolveQueue, res)</span><br><span class="line">			&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">				<span class="keyword">delete</span> <span class="keyword">this</span>.emiter.promiseStatus</span><br><span class="line">				<span class="keyword">this</span>.emitAll(<span class="keyword">this</span>.emiter.rejectQueue, err)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	emitAll(queue, res) &#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>.emiter.promiseStatus === <span class="string">'pending'</span>) <span class="keyword">return</span></span><br><span class="line">		<span class="keyword">while</span> (queue.length) &#123;</span><br><span class="line">			queue[<span class="number">0</span>](res)</span><br><span class="line">			queue.shift()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	then(callback) &#123;</span><br><span class="line">		<span class="keyword">if</span> (callback &amp;&amp; <span class="keyword">typeof</span> callback === <span class="string">'function'</span>) &#123;</span><br><span class="line">			<span class="keyword">this</span>.emiter.resolveQueue.push(callback)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (callback) &#123;</span><br><span class="line">		<span class="keyword">if</span> (callback &amp;&amp; <span class="keyword">typeof</span> callback === <span class="string">'function'</span>) &#123;</span><br><span class="line">			<span class="keyword">this</span>.emiter.rejectQueue.push(callback)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/21/%E4%B8%80%E7%A7%8D%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jun 21 2021 19:44:50 GMT+0800">2021-06-21</span></span>
         
-      
+        
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+    <a href="/2021/06/21/%E4%B8%80%E7%A7%8D%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/">
+            </li>
+        
+            <li class="home-article-item">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
+                
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">浏览器下载文件</a>
-        </h2>
+                <h3 class="home-article-title">
+                    <a href="/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/">
+                        浏览器下载文件
+                    </a>
+                </h3>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+                <div class="home-article-content markdown-body">
+                    
+                        文件下载
+                    
+                </div>
 
-              <time title="Created: 2021-04-23 15:17:35" itemprop="dateCreated datePublished" datetime="2021-04-23T15:17:35+08:00">2021-04-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 14:23:23" itemprop="dateModified" datetime="2021-10-20T14:23:23+08:00">2021-10-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h3>
-      
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Apr 23 2021 15:17:35 GMT+0800">2021-04-23</span></span>
+        
+        
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+    <a href="/2021/04/23/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/">
+            </li>
+        
+            <li class="home-article-item">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
+                
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">浏览器打印功能</a>
-        </h2>
+                <h3 class="home-article-title">
+                    <a href="/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/">
+                        浏览器打印功能
+                    </a>
+                </h3>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-07 10:22:41" itemprop="dateCreated datePublished" datetime="2021-04-07T10:22:41+08:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-31 10:32:48" itemprop="dateModified" datetime="2021-12-31T10:32:48+08:00">2021-12-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
+                <div class="home-article-content markdown-body">
+                    
+                        <blockquote>
 <p>打印API：<br>window.print()</p>
 </blockquote>
 <h3 id="需求：打印局部内容，如打印下面页面类名-printBox-里面的内容"><a href="#需求：打印局部内容，如打印下面页面类名-printBox-里面的内容" class="headerlink" title="需求：打印局部内容，如打印下面页面类名 printBox 里面的内容"></a>需求：打印局部内容，如打印下面页面类名 <strong>printBox</strong> 里面的内容</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>页面内容...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"printBtn"</span>&gt;</span>打印报告<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"printContent"</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"printBox"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>打印报告<span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>报告内容...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/#more" rel="contents">
-                Read more &raquo;
-              </a>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Apr 07 2021 10:22:41 GMT+0800">2021-04-07</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/04/07/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/03/04/hello-world/">
+                        Hello World
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Mar 04 2021 14:49:48 GMT+0800">2021-03-04</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/03/04/hello-world/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2020/11/06/web-components/">
+                        Web Components
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        The Shadow DOM通过shadow DOM在文档流中创建一些完全独立于其他元素的子DOM树（sub-DOM trees），由于这个特性，使我们能封装一个具有独立功能的组件，并且可以保证不会干扰到其它DOM元素
+兼容性Chrome、Opera...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Nov 06 2020 10:10:29 GMT+0800">2020-11-06</span></span>
+        
+        
+    </div>
+
+    <a href="/2020/11/06/web-components/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/28/Apache%E9%85%8D%E7%BD%AE/">
+                        Apache配置
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        wamp安装及配置反向代理
+安装wamp，也可安装apache
+
+下载地址 “http://www.wampserver.com/en/&quot;
+
+
+配置apache使外网访问（版本2.4.27）
+
+修改httpd.conf文件Require a...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 28 2020 15:40:04 GMT+0800">2020-10-28</span></span>
+        
+        
+    </div>
+
+    <a href="/2020/10/28/Apache%E9%85%8D%E7%BD%AE/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/28/git-%E6%89%8B%E5%86%8C/">
+                        git 手册
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        git操作
+分支操作
+
+
+操作
+命令
+
+
+
+新建本地新分支
+git branch branch
+
+
+新建并切换到本地新分支
+git checkout -b branch
+
+
+新建远程分支
+git push origin branch:remoteBr...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 28 2020 15:34:41 GMT+0800">2020-10-28</span></span>
+        
+        
+    </div>
+
+    <a href="/2020/10/28/git-%E6%89%8B%E5%86%8C/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    
+
+    
+        <a class="next btn"
+           href="/page/2/"
+        >Next</a>
+    
+</div>
+
+    </div>
+</div>
+
+
+                
             </div>
-          <!--/noindex-->
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">bingo</a>
+        </div>
         
-      
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
     </div>
 
     
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2021/03/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/04/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-04 14:49:48" itemprop="dateCreated datePublished" datetime="2021-03-04T14:49:48+08:00">2021-03-04</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2020/11/06/web-components/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/06/web-components/" class="post-title-link" itemprop="url">Web Components</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-06 10:10:29" itemprop="dateCreated datePublished" datetime="2020-11-06T10:10:29+08:00">2020-11-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 14:49:48" itemprop="dateModified" datetime="2021-03-04T14:49:48+08:00">2021-03-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">+ web</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="The-Shadow-DOM"><a href="#The-Shadow-DOM" class="headerlink" title="The Shadow DOM"></a>The Shadow DOM</h2><p>通过shadow DOM在文档流中创建一些完全独立于其他元素的子DOM树（sub-DOM trees），由于这个特性，使我们能封装一个具有独立功能的组件，并且可以保证不会干扰到其它DOM元素</p>
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Chrome、Opera、Chrome for Android</p>
-<h2 id="WebComponents的重要性"><a href="#WebComponents的重要性" class="headerlink" title="WebComponents的重要性"></a>WebComponents的重要性</h2><ul>
-<li>开发无害插件（主页面样式不会修改组件样式）</li>
-<li>能开发更通用的组件</li>
-<li>可维护</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/28/Apache%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/28/Apache%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Apache配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-10-28 15:40:04" itemprop="dateCreated datePublished" datetime="2020-10-28T15:40:04+08:00">2020-10-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 14:49:48" itemprop="dateModified" datetime="2021-03-04T14:49:48+08:00">2021-03-04</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="wamp安装及配置反向代理"><a href="#wamp安装及配置反向代理" class="headerlink" title="wamp安装及配置反向代理"></a>wamp安装及配置反向代理</h2><ol>
-<li><p>安装wamp，也可安装apache</p>
-<blockquote>
-<p><a href="http://www.wampserver.com/en/" target="_blank" rel="noopener">下载地址</a> “<a href="http://www.wampserver.com/en/&quot;" target="_blank" rel="noopener">http://www.wampserver.com/en/&quot;</a></p>
-</blockquote>
-</li>
-<li><p>配置apache使外网访问（版本2.4.27）</p>
-<ul>
-<li>修改httpd.conf文件<pre><code>Require all denied  ==&gt;  Require all granted
-Require local  ==&gt; Require all granted
-Listen 0.0.0.0:8000 //搜索 Listen 0.0.0.0:80 添加对8000端口的监听</code></pre></li>
-<li>修改httpd-vhosts.conf文件<pre><code>Require all denied ==&gt; Require all granted
-//至此别人可以访问你的www目录下的静态内容</code></pre></li>
-</ul>
-</li>
-<li><p>设置花生壳内网穿透（有公网ip的忽略）</p>
-<blockquote>
-<p>填写你的局域网ip,端口,获得外网访问地址</p>
-</blockquote>
-</li>
-<li><p>配置Apache反向代理nodejs服务</p>
-<ul>
-<li><p>修改httpd.conf文件</p>
-<pre><code>//去掉下列内容的注释，引入代理模块
-LoadModule proxy_module modules/mod_proxy.so
-LoadModule proxy_http_module modules/mod_proxy_http.so
-//如需ftp，取消如下注释
-LoadModule proxy_ftp_module modules/mod_proxy_ftp.so</code></pre></li>
-<li><p>修改httpd-vhosts.conf文件</p>
-<pre><code>//添加下列代码
-&lt;VirtualHost *:8000&gt; //不放在80端口上防止影响phpMyAdmin
-    ServerName 20xr498049.imwork.net //外网访问的域名
-    ServerAlias www.20xr498049.imwork.net:42685 //别名
-    #DocumentRoot &quot;${INSTALL_DIR}/www&quot; 
-    &lt;Proxy *&gt;
-        Order allow,deny
-        Allow from all
-    &lt;/Proxy&gt;
-    &lt;Location /&gt;  
-        ProxyPass http://localhost:3000/  //node访问地址
-        ProxyPassReverse http://localhost:3000/  
-    &lt;/Location&gt;  
-&lt;/VirtualHost&gt;</code></pre></li>
-</ul>
-</li>
-<li><p>开启nodejs项目，重启apache服务。</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenshanshu.github.io/2020/06/15/hello-world/2020/10/28/git-%E6%89%8B%E5%86%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chenss">
-      <meta itemprop="description" content="前端开发 javascript css html 样式">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/28/git-%E6%89%8B%E5%86%8C/" class="post-title-link" itemprop="url">git 手册</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-10-28 15:34:41" itemprop="dateCreated datePublished" datetime="2020-10-28T15:34:41+08:00">2020-10-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 14:23:43" itemprop="dateModified" datetime="2021-10-20T14:23:43+08:00">2021-10-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h3><hr>
-<h5 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h5><table>
-<thead>
-<tr>
-<th align="left">操作</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">新建本地新分支</td>
-<td align="left"><code>git branch branch</code></td>
-</tr>
-<tr>
-<td align="left">新建并切换到本地新分支</td>
-<td align="left"><code>git checkout -b branch</code></td>
-</tr>
-<tr>
-<td align="left">新建远程分支</td>
-<td align="left"><code>git push origin branch:remoteBranch</code></td>
-</tr>
-<tr>
-<td align="left">删除本地分支</td>
-<td align="left"><code>git branch -d dev</code></td>
-</tr>
-<tr>
-<td align="left">删除远程分支</td>
-<td align="left"><code>git push origin :remoteBranch</code></td>
-</tr>
-<tr>
-<td align="left">设置本地追踪远程分支</td>
-<td align="left"><code>git branch --set-upstream-to=origin/remoteBranch localBranch</code></td>
-</tr>
-<tr>
-<td align="left">直接将远程分支拉取并在本地建立关联分支</td>
-<td align="left"><code>git checkout -b localBranch origin/remoteBranch</code>    <br><code>or</code><br><code>git fetch origin master:test</code></td>
-</tr>
-</tbody></table>
-<h5 id="强制操作"><a href="#强制操作" class="headerlink" title="强制操作"></a>强制操作</h5><table>
-<thead>
-<tr>
-<th align="left">操作</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">强制覆盖本地修改</td>
-<td align="left"><code>git fetch --all</code><br><code>git reset --hard origin/master</code><br><code>git pull</code></td>
-</tr>
-<tr>
-<td align="left">强制上传</td>
-<td align="left"><code>git push -f origin remoteBranch</code></td>
-</tr>
-</tbody></table>
-<h5 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h5><table>
-<thead>
-<tr>
-<th align="left">操作</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">查看本地分支与远程关联情况</td>
-<td align="left"><code>git branch -vv</code></td>
-</tr>
-<tr>
-<td align="left">查看本地仓库状态</td>
-<td align="left"><code>git status</code></td>
-</tr>
-<tr>
-<td align="left">查看本地操作</td>
-<td align="left"><code>git reflog</code></td>
-</tr>
-<tr>
-<td align="left">比较本地与远程</td>
-<td align="left"><code>git log -p master  ..origin/master</code></td>
-</tr>
-<tr>
-<td align="left">查看某个提交</td>
-<td align="left"><code>git show commitID</code></td>
-</tr>
-<tr>
-<td align="left">修改主机地址</td>
-<td align="left"><code>git remote set-url origin ssh.aaaa.git</code><br><code>or</code><br><code>git remote rm origin</code><br><code>git remote add origin [url]</code></td>
-</tr>
-<tr>
-<td align="left">版本回退</td>
-<td align="left"><code>git reset --hard commitID</code></td>
-</tr>
-<tr>
-<td align="left">版本回滚</td>
-<td align="left"><code>git revert HEAD</code></td>
-</tr>
-<tr>
-<td align="left">将指定的提交（commit）应用于其他分支</td>
-<td align="left"><code>git cherry-pick commitID</code>//分支名</td>
-</tr>
-<tr>
-<td align="left">Cherry pick 支持一次转移多个提交</td>
-<td align="left"><code>git cherry-pick A^..B</code>//包含A和B</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
         </li>
-        <li class="sidebar-nav-overview">
-          Overview
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
         </li>
-      </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">chenss</p>
-  <div class="site-description" itemprop="description">前端开发 javascript css html 样式</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
         
-          <span class="site-state-item-count">17</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">categories</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
 </div>
-
-
-
-      </div>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
 
+    
 
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">chenss</span>
+    <div class="image-viewer-container">
+    <img src="">
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
-        
 
 
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
 
 
 
 
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
+<script src="/js/main.js"></script>
 
+<script src="/js/header-shrink.js"></script>
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/back2top.js"></script>
 
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
+<script src="/js/dark-light-toggle.js"></script>
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
 
 
 
+    
+<script src="/js/lazyload.js"></script>
 
 
 
+<div class="post-scripts">
+    
+</div>
 
-  
 
-  
 
 </body>
 </html>
