@@ -217,29 +217,29 @@ npm i webpack-cli -D /*webpack4提示需要安装这个才能使用*/
 <pre>
 <code>
 const path = require('path'); 
-const config = {
+const config = &#123;
 
     mode:'development',
-    entry:{
+    entry:&#123;
         main:path.resolve(__dirname,"./src","index.js")
-    },
-    output:{
+    &#125;,
+    output:&#123;
         path:path.resolve(__dirname,'dist'),
         filename:'bundle.js'
-    },
-    module:{
+    &#125;,
+    module:&#123;
         rules:[
-            {
+            &#123;
                 test:/\.css$/,
                 use:[
                     "style-loader",
                     "css-loader"
                 ]
-            }
+            &#125;
         ]
-    }
+    &#125;
 
-}; 
+&#125;; 
 module.exports = config; 
 </code>
 </pre>
@@ -252,11 +252,11 @@ module.exports = config;
 <p>使用起来还是不方便，可以把命令加到package.json里；注意这里只需要提供包名，node会自动找到包所在目录。</p>
 <pre>
 <code>
-"scripts": {
+"scripts": &#123;
 
     "start": "webpack",
 
-  }
+  &#125;
 </code>
 </pre>
 <p>现在可以在命令行使用下面命令打包</p>
