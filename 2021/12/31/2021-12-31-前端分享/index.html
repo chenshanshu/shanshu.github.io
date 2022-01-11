@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="前端开发 javascript css html 样式">
-    <meta name="author" content="bingo">
+    <meta name="author" content="chenshanshu">
     
     <title>
         
@@ -23,7 +23,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"chenshanshu.github.io","root":"/","language":"en","path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/bingo.jpg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/header.jpg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="MyBlog" type="application/atom+xml">
@@ -81,6 +81,14 @@
                             </a>
                         </li>
                     
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
                     
                         <li class="menu-item search search-popup-trigger">
                             <i class="fas fa-search"></i>
@@ -112,6 +120,11 @@
                        href="/archives">ARCHIVES</a>
                 </li>
             
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
         </ul>
     </div>
 
@@ -137,11 +150,11 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/bingo.jpg">
+                    <img src="/images/header.jpg">
                 </div>
                 <div class="info">
                     <div class="author">
-                        <span class="name">bingo</span>
+                        <span class="name">chenshanshu</span>
                         
                             <span class="author-label">Lv3</span>
                         
@@ -159,12 +172,23 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E5%89%8D%E7%AB%AF/">+ 前端</a>&nbsp;
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
                     </li>
                 
             </ul>
         </span>
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%88%86%E4%BA%AB/">分享</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -210,11 +234,19 @@
 </ul>
 <p>question: 移动端页面进行支付时页面会进行刷新, 导致Vuex存储的数据丢失了。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getState = <span class="function"><span class="params">_</span> =&gt;</span> <span class="built_in">JSON</span>.parse(<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&quot;state&quot;</span>) || <span class="string">&#x27;&#123;&#125;&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> setState = <span class="function"><span class="params">state</span> =&gt;</span> <span class="built_in">window</span>.sessionStorage.setItem(<span class="string">&#x27;state&#x27;</span>, <span class="built_in">JSON</span>.stringify(state || &#123;&#125;));</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    <span class="attr">state</span>: &#123;</span><br><span class="line">        <span class="attr">id</span>: <span class="literal">null</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="literal">null</span>,</span><br><span class="line">        ...getState()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attr">mutations</span>: &#123;</span><br><span class="line">        <span class="function"><span class="title">SETNAME</span>(<span class="params">state, v</span>)</span> &#123;</span><br><span class="line">            state.name = v</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">actions</span>: &#123;</span><br><span class="line">        <span class="function"><span class="title">setName</span>(<span class="params">context, val</span>)</span> &#123;</span><br><span class="line">            context.commit(<span class="string">&quot;SETNAME&quot;</span>, val)</span><br><span class="line">            setState(context.state)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">getters</span>: &#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
+<h2 id="scrollHeight用法"><a href="#scrollHeight用法" class="headerlink" title="scrollHeight用法"></a>scrollHeight用法</h2>
         </div>
 
         
 
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%88%86%E4%BA%AB/">#分享</a>&nbsp;
+                    </li>
+                
+            </ul>
         
 
         
@@ -276,7 +308,7 @@
               <span>2020</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">bingo</a>
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">chenshanshu</a>
         </div>
         
         <div class="theme-info info-item">
@@ -360,7 +392,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">reduce()的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vuex%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">Vuex数据保存问题</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">reduce()的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vuex%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">Vuex数据保存问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scrollHeight%E7%94%A8%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">scrollHeight用法</span></a></li></ol>
     </div>
 </div>
         </aside>
