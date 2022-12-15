@@ -23,7 +23,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"chenshanshu.github.io","root":"/","language":"en","path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/header.jpg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/header.jpg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="MyBlog" type="application/atom+xml">
@@ -83,9 +83,25 @@
                     
                         <li class="menu-item">
                             <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
                                href="/tags"
                             >
                                 TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/html"
+                            >
+                                HTML
                             </a>
                         </li>
                     
@@ -122,7 +138,17 @@
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
                        href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/html">HTML</a>
                 </li>
             
         </ul>
@@ -156,7 +182,7 @@
                     <div class="author">
                         <span class="name">chenshanshu</span>
                         
-                            <span class="author-label">Lv3</span>
+                            <span class="author-label">Lv4</span>
                         
                     </div>
                     <div class="meta-info">
@@ -204,6 +230,8 @@
 
         <div class="article-content markdown-body">
             <pre>^((?!\d*$)\S{2, })|(\d{6, })$//超过2个字符或者超过6位纯数字</pre>
+
+<h5 id="匹配某个变量"><a href="#匹配某个变量" class="headerlink" title="匹配某个变量"></a>匹配某个变量</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ch = <span class="string">&#x27;变量&#x27;</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">`/<span class="subst">$&#123;ch&#125;</span>/g`</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>(ch,<span class="string">&#x27;g&#x27;</span>)</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -224,13 +252,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2020/10/28/webpack%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"
+                           href="/2020/10/28/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8Bwebpack/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">webpack快速上手</span>
+                                <span class="post-nav-title-item">快速上手webpack</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -240,10 +268,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2020/10/09/python%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"
+                           href="/2020/06/04/vue%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%89%E7%A7%8D%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">python 截取字符串</span>
+                                <span class="post-nav-title-item">vue组件的三种调用方式</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -376,7 +404,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E6%9F%90%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">匹配某个变量</span></a></li></ol>
     </div>
 </div>
         </aside>
